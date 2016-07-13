@@ -1,4 +1,4 @@
-Package: FeR
+Package: InFeR
 Title: My Package
 Version: 0.0.0.9000
 Authors@R: person("Fernando", "Teixeira", email = "fernando.teixeira@fgv.br", role = c("aut", "cre"))
