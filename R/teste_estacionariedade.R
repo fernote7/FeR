@@ -9,7 +9,7 @@
 
 
 
-teste_estacionariedade = function(sondagens, financeiras, periodo, variacao){
+teste_estacionariedade <- function(sondagens, financeiras, periodo, variacao){
 
     ## Carregando pacotes necessários
     if (!require("pacman")) install.packages("pacman")
