@@ -13,7 +13,7 @@
 #require(plot3D)
 #require(dplyr)
 
-vec_euler_call <- function(X0, mu, sigma, Dt = 0.1, t, T, N = 100, K = 0, plt=FALSE){ 
+euler_call <- function(X0, mu, sigma, Dt = 0.1, t, T, N = 100, K = 0, plt=FALSE){ 
     
     X0 = rep(X0,N)                          # criando o vetor de valores iniciais
     linhas = floor((T-t)/Dt + 1)            # número de linhas da matriz de resultados
