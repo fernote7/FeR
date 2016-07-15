@@ -2,20 +2,47 @@
 % Please edit documentation in R/func_adf.R
 \name{func_adf}
 \alias{func_adf}
-\title{A Cat Function}
+\title{ADF Function}
 \usage{
 func_adf(data, col.init, col.fin, lags = 24, select.lags = "AIC",
   mymfrow = c(5, 3), mymar = c(3, 2, 1.5, 1), myoma = c(0, 0, 2, 0),
   dif = "y", res = "y", precision = 2, plt = F)
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{data}{Dataframe.}
+
+\item{col.init}{Initial column.}
+
+\item{col.fin}{Final column.}
+
+\item{lags}{maximum lags for test. Defaults to 24.}
+
+\item{select.lags}{Information criterion ("Fixed", "AIC", "BIC"). Defaults to AIC.}
+
+\item{mymfrow}{Plot parameters. Defaults to 5 lines and 3 colunns of plots.}
+
+\item{mymar}{Plot parameters. Size of plot margins, defaults to c(3,2,1.5,1).}
+
+\item{myoma}{Plot parameters. Size of plot outside margins, defaults to c(0, 0, 2, 0).}
+
+\item{dif}{Apply test to first difference? Defaults to 'y'.}
+
+\item{res}{Compute residuals? Defaults to 'y'.}
+
+\item{precision}{Number of digits in a number.}
+
+\item{plt}{Plot? Defaults to FALSE.}
 }
 \description{
-This function allows you to express your love of cats.
+This function allows you to run an ADF test through several contiguous columns of a dataframe using urca package.
 }
 \examples{
-cat_function()
+milstein(307.65, 0.75, 0.3, 0.001, 0, 1, 10000)
 }
-\keyword{cats}
+\author{
+Fernando Teixeira
+}
+\keyword{ADF}
+\keyword{test}
+\keyword{urca}
 
