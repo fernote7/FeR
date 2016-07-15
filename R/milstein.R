@@ -1,11 +1,19 @@
-#' A Cat Function
+#' Milstein Function
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' This function allows you to simulate Milstein method.
+#' @param X0 Initial value.
+#' @param mu Drift coeficient.
+#' @param sigma Diffusion coefficient.
+#' @param Dt Step size.
+#' @param t Initial time period.
+#' @param T Final time period.
+#' @param N Number of simulations.
+#' @param plt Plot? Defaults to FALSE.
+#' @keywords milstein method
 #' @export
 #' @examples
-#' cat_function()
+#' @author Fernando Teixeira
+#' vec_milstein(307.65, 0.75, 0.3, 0.001, 0, 1, 10000)
 #' 
 #' 
 

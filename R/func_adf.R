@@ -1,11 +1,23 @@
-#' A Cat Function
+#' ADF Function
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' This function allows you to run an ADF test through several contiguous columns of a dataframe using urca package.
+#' @param data Dataframe.
+#' @param col.init Initial column.
+#' @param col.fin Final column.
+#' @param lags maximum lags for test. Defaults to 24.
+#' @param select.lags Information criterion ("Fixed", "AIC", "BIC"). Defaults to AIC.
+#' @param mymfrow Plot parameters. Defaults to 5 lines and 3 colunns of plots.
+#' @param mymar Plot parameters. Size of plot margins, defaults to c(3,2,1.5,1).
+#' @param myoma Plot parameters. Size of plot outside margins, defaults to c(0, 0, 2, 0).
+#' @param dif Apply test to first difference? Defaults to 'y'.
+#' @param res Compute residuals? Defaults to 'y'.
+#' @param precision Number of digits in a number.
+#' @param plt Plot? Defaults to FALSE.
+#' @keywords ADF test urca
 #' @export
 #' @examples
-#' cat_function()
+#' milstein(307.65, 0.75, 0.3, 0.001, 0, 1, 10000)
+#' @author Fernando Teixeira
 
 func_adf <- function(data, col.init, col.fin, lags = 24, select.lags = "AIC", 
                      mymfrow = c(5,3), mymar = c(3,2,1.5,1), myoma = c(0, 0, 2, 0), 
