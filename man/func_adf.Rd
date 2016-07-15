@@ -37,7 +37,7 @@ func_adf(data, col.init, col.fin, lags = 24, select.lags = "AIC",
 This function allows you to run an ADF test through several contiguous columns of a dataframe using urca package.
 }
 \examples{
-milstein(307.65, 0.75, 0.3, 0.001, 0, 1, 10000)
+func_adf(series,1,3, dif = 'y', res = 'n', mymfrow = c(3,1), lags=13)
 }
 \author{
 Fernando Teixeira

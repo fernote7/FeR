@@ -15,5 +15,8 @@ This function allows you to express your love of cats.
 \examples{
 cat_function()
 }
+\author{
+Ingrid Luquett
+}
 \keyword{cats}
 

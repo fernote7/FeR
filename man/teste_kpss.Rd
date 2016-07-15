@@ -2,7 +2,7 @@
 % Please edit documentation in R/teste_kpss.R
 \name{teste_kpss}
 \alias{teste_kpss}
-\title{A Cat Function}
+\title{kpss function}
 \usage{
 teste_kpss(serie)
 }

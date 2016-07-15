@@ -10,6 +10,7 @@ teste_adf2(serie, lag_max)
 \item{love}{Do you love cats? Defaults to TRUE.}
 }
 \description{
+adf2 function
 This function allows you to express your love of cats.
 }
 \examples{
