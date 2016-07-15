@@ -4,7 +4,7 @@
 #' @param love Do you love cats? Defaults to TRUE.
 #' @keywords cats
 #' @export
-#' @author Ingrid Luquett
+#' @author Ingrid Oliveira
 #' @examples
 #' teste_estacionariedade()
 
