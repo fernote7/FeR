@@ -1,8 +1,3 @@
-#' kpss function
-#'
-#' This function allows you to express your love of cats.
-
-
 teste_kpss = function(serie){
     
     # Carregando pacotes necessários

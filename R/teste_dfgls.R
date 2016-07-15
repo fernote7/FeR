@@ -1,9 +1,3 @@
-#' dfgls function
-#'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-
-
 teste_dfgls = function(serie, modelo = c("trend", "constant"), lag_max){
     
     # Carregando pacotes necessários

@@ -1,8 +1,11 @@
-#' A Cat Function
+#' Stationarity Test
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' This function compiles a number of different stationarity tests
+#' @param sondagens matrix with data including a date column.
+#' @param financeiras matrix with data including a date column.
+#' @param periodo Barometer period in the format as.character(seq(as.Date("aaaa-mm-dd"), as.Date("aaaa-mm-dd"), by = "month")).
+#' @param variacao TRUE or FALSE parameter indicating if the series have negative numbers or not.
+#' @keywords test stationarity
 #' @export
 #' @author Ingrid Oliveira
 #' @examples
