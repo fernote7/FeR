@@ -6,7 +6,7 @@
 #' @export
 #' @author Ingrid Luquett
 #' @examples
-#' cat_function()
+#' teste_estacionariedade()
 
 
 

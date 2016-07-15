@@ -3,9 +3,6 @@
 #' adf2 function
 #' This function allows you to express your love of cats.
 #' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
-#' @examples
-#' cat_function()
 
 
 teste_adf2 = function(serie, lag_max){

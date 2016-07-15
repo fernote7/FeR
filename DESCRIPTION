@@ -1,8 +1,9 @@
-Package: InFeR
+Package: Infer
 Title: My Package
 Version: 0.0.0.9000
-Authors@R: person("Fernando", "Teixeira", email = "fernando.teixeira@fgv.br", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: c(person("Fernando", "Teixeira", email = "fernando.teixeira@fgv.br", role = c("aut", "cre")),
+			 person("Ingrid", "Oliveira", email = "ingrid.oliveira@fgv.br", role = "aut"))
+Description: Stationarity test functions and numerical SDE's implementations.
 Depends:
     R (>= 3.2.0)
 Imports:
