@@ -16,7 +16,7 @@ This function allows you to express your love of cats.
 teste_estacionariedade()
 }
 \author{
-Ingrid Luquett
+Ingrid Oliveira
 }
 \keyword{cats}
 
