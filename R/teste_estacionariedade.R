@@ -4,6 +4,7 @@
 #' @param love Do you love cats? Defaults to TRUE.
 #' @keywords cats
 #' @export
+#' @author Ingrid Luquett
 #' @examples
 #' cat_function()
 

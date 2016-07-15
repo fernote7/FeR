@@ -1,3 +1,14 @@
+#' A Cat Function
+#' 
+#' adf function
+#' This function allows you to express your love of cats.
+#' @param love Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @examples
+#' cat_function()
+
+
+
 teste_adf = function(serie, lag_max){
     
     # Carregando pacotes necessários

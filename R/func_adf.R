@@ -16,7 +16,7 @@
 #' @keywords ADF test urca
 #' @export
 #' @examples
-#' milstein(307.65, 0.75, 0.3, 0.001, 0, 1, 10000)
+#' func_adf(series,1,3, dif = 'y', res = 'n', mymfrow = c(3,1), lags=13)
 #' @author Fernando Teixeira
 
 func_adf <- function(data, col.init, col.fin, lags = 24, select.lags = "AIC", 

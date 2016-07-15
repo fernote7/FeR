@@ -11,14 +11,14 @@
 #' @param plt Plot? Defaults to FALSE.
 #' @keywords milstein method
 #' @export
-#' @examples
 #' @author Fernando Teixeira
-#' vec_milstein(307.65, 0.75, 0.3, 0.001, 0, 1, 10000)
+#' @examples
+#' milstein(307.65, 0.75, 0.3, 0.001, 0, 1, 10000)
 #' 
 #' 
 
 
-vec_milstein <- function(X0, mu, sigma, Dt, t, T, N, plt=F){ 
+milstein <- function(X0, mu, sigma, Dt, t, T, N, plt=F){ 
     
     X0 = rep(X0,N)
     linhas = (T-t)/Dt + 1
