@@ -29,9 +29,6 @@ func_adf <- function(data, col.init, col.fin, lags = 24, select.lags = "AIC",
     }
     
     
-    if (!require("pacman")) install.packages("pacman")
-    pacman::p_load(TSA, urca)
-    
     numcol = col.fin-col.init + 1 # núm total de colunas
     b = rep(1, numcol)
     c = rep(1,3)

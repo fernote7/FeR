@@ -1,9 +1,5 @@
 teste_adf = function(serie, lag_max){
     
-    # Carregando pacotes necessários
-    if (!require("pacman")) install.packages("pacman")
-    pacman::p_load(urca)
-    
     # Etapa 1: modelo com tendência - Delta Y_t = a0 + a1*t + g Y_t-1 + somatorio(beta_i Delta Y_t-i) + e_t
     adf = ur.df(serie, type = "trend", lags = lag_max, selectlags = "AIC")
     coef_adf = adf@testreg$coefficients

@@ -1,11 +1,13 @@
-#' A Cat Function
+#' An Error Correction Model Function
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
+#' This function transforms your OLS coefficients into error correction coefficients.
+#' @param formula A regression formula.
+#' @param serie A dataframe with the series used by the formula provided.
+#' @keywords Error Correction Model, ECM
 #' @export
+#' @author Fernando Teixeira
 #' @examples
-#' cat_function()
+#' ECM(y ~ x + z, df)
 
 ECM = function(formula, serie){
   

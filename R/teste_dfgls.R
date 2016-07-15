@@ -1,9 +1,5 @@
 teste_dfgls = function(serie, modelo = c("trend", "constant"), lag_max){
     
-    # Carregando pacotes necessários
-    if (!require("pacman")) install.packages("pacman")
-    pacman::p_load(urca)
-    
     # Teste DF-GLS para verificar se a série é estacionária. 
     dfgls = ur.ers(serie, type = "DF-GLS", model = modelo, lag.max = lag_max)
     

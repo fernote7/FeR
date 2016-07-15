@@ -1,10 +1,5 @@
 teste_kpss = function(serie){
     
-    # Carregando pacotes necessários
-    if (!require("pacman")) install.packages("pacman")
-    pacman::p_load(urca, zoo)
-    
-    
     # 'tend_det' é uma variável auxiliar que diz se a tendência determinística foi
     # significativa ou não
     tend_det = NA

@@ -15,11 +15,6 @@
 
 teste_estacionariedade <- function(sondagens, financeiras, periodo, variacao){
 
-    ## Carregando pacotes necessários
-    if (!require("pacman")) install.packages("pacman")
-    pacman::p_load(plyr, lubridate)
-
-
     ## Caso o argumento variação esteja faltando consideramos que as séries não estão em %
     if(missing("variacao")){variacao = FALSE}
 

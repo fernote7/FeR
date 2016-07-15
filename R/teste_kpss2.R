@@ -1,9 +1,6 @@
 teste_kpss2 = function(serie, modelo = c("tau", "mu")){
     
-    # Carregando pacotes necessários
-    if (!require("pacman")) install.packages("pacman")
-    pacman::p_load(urca)
-    
+
     # Teste KPSS para verificar se a série é estacionária
     kpss = ur.kpss(serie, type = modelo, lags = "long")
     
