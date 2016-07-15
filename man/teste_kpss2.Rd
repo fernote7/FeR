@@ -12,8 +12,5 @@ teste_kpss2(serie, modelo = c("tau", "mu"))
 \description{
 This function allows you to express your love of cats.
 }
-\examples{
-cat_function()
-}
 \keyword{cats}
 

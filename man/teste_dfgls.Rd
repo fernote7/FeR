@@ -12,10 +12,4 @@ teste_dfgls(serie, modelo = c("trend", "constant"), lag_max)
 \description{
 This function allows you to express your love of cats.
 }
-\examples{
-cat_function()
-
-
-}
-\keyword{cats}
 

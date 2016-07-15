@@ -13,7 +13,7 @@ teste_estacionariedade(sondagens, financeiras, periodo, variacao)
 This function allows you to express your love of cats.
 }
 \examples{
-cat_function()
+teste_estacionariedade()
 }
 \author{
 Ingrid Luquett
