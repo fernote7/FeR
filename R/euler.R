@@ -1,3 +1,7 @@
+#' An Error Correction Model Function
+#'
+#'
+
 euler <- function(X0, mu, sigma, Dt, t, T, N, plt=FALSE){ 
     
     X0 = rep(X0,N)                          #  criando o vetor de valores iniciais
