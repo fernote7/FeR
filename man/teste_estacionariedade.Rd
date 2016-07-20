@@ -2,15 +2,21 @@
 % Please edit documentation in R/teste_estacionariedade.R
 \name{teste_estacionariedade}
 \alias{teste_estacionariedade}
-\title{A Cat Function}
+\title{Stationarity Test}
 \usage{
 teste_estacionariedade(sondagens, financeiras, periodo, variacao)
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{sondagens}{matrix with data including a date column.}
+
+\item{financeiras}{matrix with data including a date column.}
+
+\item{periodo}{Barometer period in the format as.character(seq(as.Date("aaaa-mm-dd"), as.Date("aaaa-mm-dd"), by = "month")).}
+
+\item{variacao}{TRUE or FALSE parameter indicating if the series have negative numbers or not.}
 }
 \description{
-This function allows you to express your love of cats.
+This function compiles a number of different stationarity tests
 }
 \examples{
 teste_estacionariedade()
@@ -18,5 +24,6 @@ teste_estacionariedade()
 \author{
 Ingrid Oliveira
 }
-\keyword{cats}
+\keyword{stationarity}
+\keyword{test}
 

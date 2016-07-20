@@ -2,18 +2,26 @@
 % Please edit documentation in R/ecm.R
 \name{ECM}
 \alias{ECM}
-\title{A Cat Function}
+\title{An Error Correction Model Function}
 \usage{
 ECM(formula, serie)
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{formula}{A regression formula.}
+
+\item{serie}{A dataframe with the series used by the formula provided.}
 }
 \description{
-This function allows you to express your love of cats.
+This function transforms your OLS coefficients into error correction coefficients.
 }
 \examples{
-cat_function()
+ECM(y ~ x + z, df)
 }
-\keyword{cats}
+\author{
+Fernando Teixeira
+}
+\keyword{Correction}
+\keyword{ECM}
+\keyword{Error}
+\keyword{Model,}
 

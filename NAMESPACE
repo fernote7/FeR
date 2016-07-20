@@ -2,7 +2,8 @@
 
 export(ECM)
 export(euler)
+export(euler_call)
 export(func_adf)
 export(milstein)
 export(teste_estacionariedade)
-export(vec_euler_call)
+import(urca)
