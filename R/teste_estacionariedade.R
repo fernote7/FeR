@@ -13,7 +13,7 @@
 
 
 
-tteste_estacionariedade <- function(sondagens, financeiras, periodo, variacao){
+teste_estacionariedade <- function(sondagens, financeiras, periodo, variacao){
 
     ## Caso o argumento variação esteja faltando consideramos que as séries não estão em %
     if(missing("variacao")){variacao = FALSE}
