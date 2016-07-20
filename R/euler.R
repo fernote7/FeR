@@ -1,6 +1,6 @@
 euler <- function(X0, mu, sigma, Dt, t, T, N, plt=FALSE){ 
     
-    X0 = rep(X0,N)                          # criando o vetor de valores iniciais
+    X0 = rep(X0,N)                          #  criando o vetor de valores iniciais
     linhas = floor((T-t)/Dt + 1)            # número de linhas da matriz de resultados
     w = matrix(nrow=linhas, ncol = N)       # matriz com N colunas, cada simulação é uma coluna
     n = seq(from=Dt, to=T, by=Dt)           # passos a serem dados
