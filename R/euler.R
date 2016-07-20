@@ -1,4 +1,4 @@
-euler <- function(X0, mu, sigma, Dt, t, T, N, plt=FALSE){ 
+veceuler <- function(X0, mu, sigma, Dt, t, T, N, plt=FALSE){ 
     
     X0 = rep(X0,N)                          #  criando o vetor de valores iniciais
     linhas = floor((T-t)/Dt + 1)            # número de linhas da matriz de resultados
