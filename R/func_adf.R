@@ -15,6 +15,7 @@
 #' @param plt Plot? Defaults to FALSE.
 #' @keywords ADF test urca
 #' @export
+#' @import urca
 #' @examples
 #' func_adf(series,1,3, dif = 'y', res = 'n', mymfrow = c(3,1), lags=13)
 #' @author Fernando Teixeira
