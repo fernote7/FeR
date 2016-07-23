@@ -2,7 +2,7 @@
 #'
 #' This function transforms your OLS coefficients into error correction coefficients.
 #' @param formula A regression formula.
-#' @param serie A dataframe with the series used by the formula provided.
+#' @param serie A dataframe or ts object with the series used by the formula provided.
 #' @keywords Error Correction Model, ECM
 #' @export
 #' @author Fernando Teixeira
