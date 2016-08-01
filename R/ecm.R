@@ -5,14 +5,13 @@
 #' @param serie A dataframe or ts object with the series used by the formula provided.
 #' @keywords Error Correction Model, ECM
 #' @export
-#' @import dynlm
+#' @import zoo, dynlm
 #' @author Fernando Teixeira
 #' @examples
 #' ECM(y ~ x + z, df)
 
-ECM = function (formula, serie) 
+ECM = function (formula, serie){
     
-{
     for (j in 1:length(attributes(serie)$class)) {
         if (attributes(serie)$class[j] != "mts" | attributes(serie)$class[j] != 
             "ts") {
