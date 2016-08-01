@@ -5,6 +5,7 @@
 #' @param serie A dataframe or ts object with the series used by the formula provided.
 #' @keywords Error Correction Model, ECM
 #' @export
+#' @import dynlm
 #' @author Fernando Teixeira
 #' @examples
 #' ECM(y ~ x + z, df)
