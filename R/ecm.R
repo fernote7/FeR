@@ -38,6 +38,7 @@ ECM = function (formula, serie){
     }
     
     su = summary(a)
+    pval=list(su$coefficients[,4])
     
     for (j in 1:length(nomes)) {
         if (j != index) {
@@ -47,6 +48,6 @@ ECM = function (formula, serie){
             }
         }
     }
-    lista = list(sumario = su, coefficients = a)
+    lista = list(sumario = su, coefficients = a, pval=pval)
     return(invisible(lista))
 }
