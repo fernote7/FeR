@@ -9,44 +9,49 @@
 #' @examples
 #' ECM(y ~ x + z, df)
 
-ECM = function (formula, serie) 
+ECM = function(formula, serie){
     
-{
-    for (j in 1:length(attributes(serie)$class)) {
-        if (attributes(serie)$class[j] != "mts" | attributes(serie)$class[j] != 
-            "ts") {
+    
+    for (j in 1: length(attributes(serie)$class)){
+        if (attributes(serie)$class[j] != "mts" | attributes(serie)$class[j] != "ts"){
             tserie = ts(serie)
             serie = tserie
-        }
+        }   
+        
     }
+    
     assign("tserie", serie, envir = .GlobalEnv)
-    formula = formula
-    a = dynlm(formula, data = tserie)
+    
+    formula = formula 
+    a=dynlm(formula, data = tserie)
     f = as.character(formula)
     f = f[2]
     f = strsplit(f, split = ",")
     f1 = substr(f[[1]][1], start = 6, stop = 100)
     nomes = names(a$coefficients)
     nome = NULL
-    for (i in 1:length(nomes)) {
+
+    
+    for (i in 1:length(nomes)){
+        
         nome[i] = strsplit(nomes[i], split = ",")
-        f3 = substr(nome[[i]][1], start = 3, stop = 100)
-        if (f1 == f3) {
+        f3 = substr(nome[[i]][1], start=3, stop = 100)    
+        if (f1 == f3){
             f4 = nomes[i]
             index = i
         }
     }
     
-    su = summary(a)
-    
-    for (j in 1:length(nomes)) {
-        if (j != index) {
-            f2 = substr(nome[[j]][1], start = 1, stop = 2)
-            if (f2 == "L(") {
-                su$coefficients[j,1] = - su$coefficients[j,1]/ a$coefficients[f4]
+    for (j in 1: length(nomes)){
+        if (j != index){
+            f2 = substr(nome[[j]][1], start=1, stop = 2)
+            if(f2 == "L("){
+                a$coefficients[j] = - a$coefficients[j]/a$coefficients[f4]              
             }
         }
     }
-    lista = list(sumario = su, coefficients = a)
+    
+    
+    lista = list('ecm' = summary(a), 'coefficients' = a)
     return(invisible(lista))
 }
