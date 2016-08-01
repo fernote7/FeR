@@ -1,6 +1,6 @@
 #' An Error Correction Model Function
 #'
-#' This function transforms your OLS coefficients into error correction coefficients.
+#' This function transforms your OLS coefficients into error correction coefficients. It also returns a list with the p-values for stargazer/texreg packages.
 #' @param formula A regression formula.
 #' @param serie A dataframe or ts object with the series used by the formula provided.
 #' @keywords Error Correction Model, ECM
@@ -37,6 +37,7 @@ ECM = function (formula, serie){
         }
     }
     
+    old.coef = a$coefficients
     su = summary(a)
     pval=list(su$coefficients[,4])
     
@@ -45,9 +46,10 @@ ECM = function (formula, serie){
             f2 = substr(nome[[j]][1], start = 1, stop = 2)
             if (f2 == "L(") {
                 su$coefficients[j,1] = - su$coefficients[j,1]/ a$coefficients[f4]
+                a$coefficients[j] = - a$coefficients[j]/ a$coefficients[f4]
             }
         }
     }
-    lista = list(sumario = su, coefficients = a, pval=pval)
+    lista = list(new.summary = su, new.coef = a, pval=pval, old.coef=old.coef)
     return(invisible(lista))
 }
