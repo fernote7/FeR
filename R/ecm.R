@@ -25,9 +25,22 @@ ECM = function (formula, serie){
     f = as.character(formula)
     f = f[2]
     f = strsplit(f, split = ",")
-    f1 = substr(f[[1]][1], start = 6, stop = 100)
+    f0 = substr(f[[1]][1], start = 1, stop = 2)
+
+    
+    if (f0 == "d(") {
+        
+        f1 = substr(f[[1]][1], start = 3, stop = 100)
+        
+    } else {
+        
+        f1 = substr(f[[1]][1], start = 6, stop = 100)
+        
+    }
+    
     nomes = names(a$coefficients)
-    nome = NULL
+    nome = NULL    
+    
     for (i in 1:length(nomes)) {
         nome[i] = strsplit(nomes[i], split = ",")
         f3 = substr(nome[[i]][1], start = 3, stop = 100)
