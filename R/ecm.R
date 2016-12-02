@@ -20,7 +20,6 @@ ECM = function (formula, serie){
         }
     }
     assign("tserie", serie, envir = .GlobalEnv)
-    formula = formula
     a = dynlm(formula, data = tserie)
     f = as.character(formula)
     f = f[2]
