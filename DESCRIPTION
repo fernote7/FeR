@@ -7,8 +7,14 @@ Description: Stationarity test functions and numerical SDE's implementations.
 Depends:
     R (>= 3.2.0)
 Imports:
-	TSA, urca, plyr, lubridate, zoo, dynlm
+	TSA, 
+	urca, 
+	plyr, 
+	lubridate, 
+	dynlm, 
+	vars, 
+	zoo
 License: MIT
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.1.9000
+RoxygenNote: 6.0.1

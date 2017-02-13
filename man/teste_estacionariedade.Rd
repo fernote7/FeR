@@ -26,4 +26,3 @@ Ingrid Oliveira
 }
 \keyword{stationarity}
 \keyword{test}
-

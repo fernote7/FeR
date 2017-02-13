@@ -45,4 +45,3 @@ Fernando Teixeira
 \keyword{ADF}
 \keyword{test}
 \keyword{urca}
-

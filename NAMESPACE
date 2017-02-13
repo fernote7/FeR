@@ -3,4 +3,8 @@
 export(ECM)
 export(func_adf)
 export(teste_estacionariedade)
+export(toda)
+import(dynlm)
 import(urca)
+import(vars)
+import(zoo)

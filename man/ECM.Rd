@@ -9,10 +9,10 @@ ECM(formula, serie)
 \arguments{
 \item{formula}{A regression formula.}
 
-\item{serie}{A dataframe with the series used by the formula provided.}
+\item{serie}{A dataframe or ts object with the series used by the formula provided.}
 }
 \description{
-This function transforms your OLS coefficients into error correction coefficients.
+This function transforms your OLS coefficients into error correction coefficients. It also returns a list with the p-values for stargazer/texreg packages.
 }
 \examples{
 ECM(y ~ x + z, df)
@@ -24,4 +24,3 @@ Fernando Teixeira
 \keyword{ECM}
 \keyword{Error}
 \keyword{Model,}
-
