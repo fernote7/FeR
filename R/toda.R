@@ -13,7 +13,8 @@
 #' @author Fernando Teixeira
 #' 
 
-
+# x = granger_ts; m = 2; plt = T; ic = 1
+# toda(x = granger_ts, m = 2, plt = T, ic = 1)
 
 toda <- function(x, m, plt = F, ic = 1){
     
@@ -51,10 +52,7 @@ toda <- function(x, m, plt = F, ic = 1){
                 
                 aic = a1$p
                 
-                if (plt == T){
-                    stab=stability(a1)
-                    plot(stab)
-                }
+
                 exog = c()
                 
                 for (n in 1:m){
@@ -80,6 +78,11 @@ toda <- function(x, m, plt = F, ic = 1){
                     
                     c1 = strsplit(causa1$method, split=" ")
                     vetor = c(vetor, paste(c1[[1]][4], "<->", c1[[1]][8]))
+                    
+                    if (plt == T){
+                        stab=stability(a1)
+                        plot(stab)
+                    }
                     
                 }
                 
