@@ -15,6 +15,7 @@
 
 # x = granger_ts; m = 2; plt = T; ic = 1
 # toda(x = granger_ts, m = 2, plt = T, ic = 1)
+# boundary(stab$stability[[1]])
 
 toda <- function(x, m, plt = F, ic = 1){
     
