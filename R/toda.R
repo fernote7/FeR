@@ -9,15 +9,15 @@
 #' @export
 #' @import vars
 #' @examples
-#' toda(x, m = 2, plt = F, ic = 1)
+#' toda(x, m = 2, plt = F, ic = 1, pval=0.05)
 #' @author Fernando Teixeira
 #' 
 
-# x = granger_ts; m = 2; plt = T; ic = 1
-# toda(x = granger_ts, m = 2, plt = T, ic = 1)
+# x = granger_ts; m = 2; plt = T; ic = 1, pval=0.1
+# yama = toda(x = granger_ts, m = 2, plt = T, ic = 1, pval=0.1)
 # boundary(stab$stability[[1]])
 
-toda <- function(x, m, plt = F, ic = 1){
+toda <- function(x, m, plt = F, ic = 1, pval=0.05){
     
     vetor = c()
     
@@ -37,52 +37,70 @@ toda <- function(x, m, plt = F, ic = 1){
                 aic = VARselect(granger_teste, lag.max = 12, 
                                 type = "const")$selection[ic]
                 
-                a1=VAR(granger_teste, p= aic, type = "const")
+                a1=VAR(granger_teste, p= aic, type = "both")
                 
                 erros = serial.test(a1,lags.bg = aic, type = "BG")
                 
                 
-                for (n in (aic):11){
+                ### Decidindo o VAR ideal
+                
+                for (iter in (aic):12){
+                    
+                    n = iter
+                    
                     if(erros$serial$p.value < 0.05){
-                        a1 = VAR(granger_teste, p= (n + 1), type = "const")
+                        a1 = VAR(granger_teste, p= (n + 1), type = "both")
                         erros = serial.test(a1,lags.bg = (n + 1), type = "BG")
                     } 
+                    
+                    stab=stability(a1)
+                    b1 = boundary(stab$stability[[1]])
+                    b2 = -boundary(stab$stability[[1]])
+                    
+                    n2 = n + 1
+                    aux = ifelse(stab[[1]][[1]][[1]] > b1[1] | 
+                                     stab[[1]][[1]][[1]] < b2 &
+                                     stab[[1]][[2]][[1]] > b1[1] | 
+                                     stab[[1]][[2]][[1]] < b2, 
+                                 (n <- n[1]), a1 <- VAR(granger_teste, p= (n2), 
+                                                        type = "both"))
+                    
+                    
                 }
                 
+                rm(aux)
                 
+                ###
                 
                 aic = a1$p
+                term1 = seq(from = 2, to = (aic*2), by=2)
+                term2 = seq(from = 1, to = (aic*2 - 1), by=2)
                 
-
-                exog = c()
+                var.ex <- VAR(granger_teste, p= (aic + m), type = "both")
+                rm(a1)
                 
-                for (n in 1:m){
-                    a=lag(granger_teste[,1],(aic+n))
-                    b=lag(granger_teste[,2],(aic+n))
-                    exog = cbind(exog, a, b)
-                }
+                #### Teste de causalidade
                 
-                var.ex <- VAR(granger_teste, p= aic,type = "const", 
-                              exogen = exog)
+                causa1 = wald.test(b=coef(var.ex$varresult[[1]]), 
+                                   Sigma=vcov(var.ex$varresult[[1]]), Terms=term1)
                 
-                
-                
-                causa1 = causality(var.ex,
-                                   cause = colnames(granger_teste)[1])$Granger 
-                causa2 = causality(var.ex,
-                                   cause = colnames(granger_teste)[2])$Granger
+                causa2 = wald.test(b=coef(var.ex$varresult[[2]]), 
+                                   Sigma=vcov(var.ex$varresult[[2]]), Terms=term2)
                 
                 
                 
                 
-                if (causa1$p.value < 0.1 & causa2$p.value < 0.1){
+                ### Apresentação de resultados
+                
+                if (causa1$result$chi2[3] < pval & 
+                    causa2$result$chi2[3] < pval){
                     
-                    c1 = strsplit(causa1$method, split=" ")
-                    vetor = c(vetor, paste(c1[[1]][4], "<->", c1[[1]][8]))
+                    c1 = strsplit(colnames(granger_teste), split=" ")
+                    vetor = c(vetor, paste(c1[[1]][1], "<->", c1[[2]][1]))
                     
                     if (plt == T){
-                        stab=stability(a1)
-                        plot(stab)
+                        stab2=stability(var.ex)
+                        plot(stab2)
                     }
                     
                 }
