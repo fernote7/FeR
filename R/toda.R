@@ -7,7 +7,7 @@
 #' @param plt Plot? Defaults to FALSE.
 #' @keywords Toda-Yamamoto
 #' @export
-#' @import vars
+#' @import vars aod
 #' @examples
 #' toda(x, m = 2, plt = F, ic = 1, pval=0.05)
 #' @author Fernando Teixeira
