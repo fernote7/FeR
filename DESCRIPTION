@@ -1,8 +1,7 @@
 Package: Infer
 Title: My Package
 Version: 0.0.0.9000
-Authors@R: c(person("Fernando", "Teixeira", email = "fernando.teixeira@fgv.br", role = c("aut", "cre")),
-			 person("Ingrid", "Oliveira", email = "ingrid.oliveira@fgv.br", role = "aut"))
+Authors@R: c(person("Fernando", "Teixeira", email = "fernando.teixeira@fgv.br", role = c("aut", "cre")))
 Description: Stationarity test functions and numerical SDE's implementations.
 Depends:
     R (>= 3.2.0)
@@ -13,7 +12,9 @@ Imports:
 	lubridate, 
 	dynlm, 
 	vars, 
-	zoo
+	zoo,
+	tibble,
+	strucchange
 License: MIT
 Encoding: UTF-8
 LazyData: true
