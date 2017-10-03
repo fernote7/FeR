@@ -7,19 +7,27 @@
 #' @param plt Plot? Defaults to FALSE.
 #' @keywords Toda-Yamamoto
 #' @export
-#' @import vars aod stats
+#' @import vars stats strucchange tibble
+#' @importFrom aod wald.test 
+#' @importFrom strucchange efp
 #' @examples
 #' toda(x, m = 2, plt = F, ic = 1, pval=0.05)
 #' @author Fernando Teixeira
 #' 
 
-# x = granger_ts; m = 2; plt = T; ic = 1, pval=0.1
-# yama = toda(x = granger_ts, m = 2, plt = T, ic = 1, pval=0.1)
+# x = granger_ts; m = 2; plt = FALSE; ic = 1; pval=0.1
+# yama = toda(x = teste[,2:7], m = 2, plt = FALSE, ic = 1, pval=0.1)
 # boundary(stab$stability[[1]])
 
 toda <- function(x, m, plt = F, ic = 1, pval=0.05){
     
-    vetor = c()
+    vetor <- c()
+    vetor1 <- c()
+    vetor11 <- c()
+    vetor2 <- c()
+    vetor21 <- c()
+    vetor3 <- c()
+    vetor31 <- c()
     
     for ( i in 1:length(x[1,])){
         
@@ -53,7 +61,7 @@ toda <- function(x, m, plt = F, ic = 1, pval=0.05){
                         erros = vars::serial.test(a1,lags.bg = (n + 1), type = "BG")
                     } 
                     
-                    stab=vars::stability(a1)
+                    stab = vars::stability(a1)
                     b1 = strucchange::boundary(stab$stability[[1]])
                     b2 = -strucchange::boundary(stab$stability[[1]])
                     
@@ -75,7 +83,7 @@ toda <- function(x, m, plt = F, ic = 1, pval=0.05){
                 term1 = seq(from = 2, to = (aic*2), by=2)
                 term2 = seq(from = 1, to = (aic*2 - 1), by=2)
                 
-                var.ex <- vars::VAR(granger_teste, p= (aic + m), type = "both")
+                var.ex <- vars::VAR(granger_teste, p = (aic + m), type = "both")
                 rm(a1)
                 
                 #### Teste de causalidade
@@ -94,8 +102,10 @@ toda <- function(x, m, plt = F, ic = 1, pval=0.05){
                 if (causa1$result$chi2[3] < pval & 
                     causa2$result$chi2[3] < pval){
                     
-                    c1 = strsplit(colnames(granger_teste), split=" ")
-                    vetor = c(vetor, paste(c1[[1]][1], "<->", c1[[2]][1]))
+                    c1 <- strsplit(colnames(granger_teste), split=" ")
+                    vetor <- c(vetor, paste(c1[[1]][1], "<->", c1[[2]][1]))
+                    vetor1 <- c(vetor1, c1[[1]][1])
+                    vetor11 <- c(vetor11, c1[[2]][1])
                     
                     if (plt == T){
                         stab2=stability(var.ex)
@@ -103,8 +113,11 @@ toda <- function(x, m, plt = F, ic = 1, pval=0.05){
                     }
                     
                 } else if (causa1$result$chi2[3] < pval) {
-                    c1 = strsplit(colnames(granger_teste), split = " ")
-                    vetor = c(vetor, paste(c1[[1]][1], "<-", c1[[2]][1]))
+                    c1 <- strsplit(colnames(granger_teste), split = " ")
+                    vetor <- c(vetor, paste(c1[[1]][1], "<-", c1[[2]][1]))
+                    vetor2 <- c(vetor2, c1[[1]][1])
+                    vetor21 <- c(vetor21, c1[[2]][1])
+                    
                     if (plt == T) {
                         stab2 = stability(var.ex)
                         plot(stab2)
@@ -112,6 +125,9 @@ toda <- function(x, m, plt = F, ic = 1, pval=0.05){
                 } else if (causa2$result$chi2[3] < pval) {
                     c1 = strsplit(colnames(granger_teste), split = " ")
                     vetor = c(vetor, paste(c1[[1]][1], "->", c1[[2]][1]))
+                    vetor3 <- c(vetor3, c1[[1]][1])
+                    vetor31 <- c(vetor31, c1[[2]][1])
+                    
                     if (plt == T) {
                         stab2 = stability(var.ex)
                         plot(stab2)
@@ -123,6 +139,15 @@ toda <- function(x, m, plt = F, ic = 1, pval=0.05){
             }    
         }
     }
-    lista = list(causalidade = vetor)
+    
+    
+    vetor_unidir <- tibble::as_tibble(cbind(c(vetor3, vetor21),c(vetor31, vetor2)))
+    colnames(vetor_unidir) <- c("var_ant", "var_pos")
+    vetor_bidir <- tibble::as_tibble(cbind(vetor1, vetor11))
+    colnames(vetor_bidir) <- c("var1", "var2")
+    
+    
+    
+    lista = list(causalidade = vetor, uni_dir = vetor_unidir, bi_dir = vetor_bidir)
     return(invisible(lista))
 }

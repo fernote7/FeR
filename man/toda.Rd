@@ -4,7 +4,7 @@
 \alias{toda}
 \title{ADF Function}
 \usage{
-toda(x, m, plt = F, ic = 1)
+toda(x, m, plt = F, ic = 1, pval = 0.05)
 }
 \arguments{
 \item{x}{Dataframe or tibble.}
@@ -19,7 +19,7 @@ toda(x, m, plt = F, ic = 1)
 This function allows you to run an ADF test through several contiguous columns of a dataframe using urca package.
 }
 \examples{
-toda(x, m = 2, plt = F, ic = 1)
+toda(x, m = 2, plt = F, ic = 1, pval=0.05)
 }
 \author{
 Fernando Teixeira
